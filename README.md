@@ -25,6 +25,9 @@ If last day's generated solar energy was below a predefined limit, the script wi
 (usually to yourself).
 In addition, the script will add a row to a Google Spreadsheet, for historical record keeping.
 
+## Enough of this, you had me at "Tesla". How do I set it up?
+Glad you asked. [Instructions are in the TeslaSolarWatch subfolder](TeslaSolarWatch/README.md).
+
 ## Why is Google Apps Script awesome for this project?
 
 - Sending emails for free is not a small feat (or feet?); think of it as "impossible if I don't own a domain name". Apps Script does it for free (it limits you to 100 emails sent per day).
@@ -37,9 +40,6 @@ In addition, the script will add a row to a Google Spreadsheet, for historical r
 I found only one other alternative: [Home Assistant](https://www.home-assistant.io/).
 People say that you can set it up to do this. I haven't done it.
 Anyways, it requires a dedicated computer (such as a high-end Raspberry Pi) running at all times at your home. No, thanks, I don't want to babysit one more device. And I don't want to monitor the "monitor".
-
-## Enough of this, you had me at "Tesla". How do I set it up?
-Follow this linky...
 
 ## What's in the cards?
 - We could easilly enchance the app to collect e.g. weekly, monthly, yearly energy generaton stats into the Spreasdsheet (in a different tab) and then chart things over time (e.g. overlap stats from each year in one chart, to look for performance degradation).
