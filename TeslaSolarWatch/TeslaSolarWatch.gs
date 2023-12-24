@@ -2,7 +2,7 @@
  * Tesla Solar Watch version 1.0.
  * 
  * This code is subject to the software license at https://github.com/TorZidan/TeslaWatch/blob/main/LICENSE
- *
+ * 
  * This is the Apps Script code for the Tesla Solar Watch project.
  * See https://github.com/TorZidan/TeslaWatch/blob/main/TeslaSolarWatch/README.md for more info.
  * 
@@ -367,7 +367,8 @@ function getNewAccessToken(refreshToken, emailRecipientsIfFailed) {
       to: emailRecipientsIfFailed,
       subject: "The Tesla Solar Watch Apps Script could not access your data at Tesla.com. Most likely your refresh token has expired and needs to be renewed. Read on.",
       htmlBody: "The Tesla Solar Watch <a href='https://script.google.com/home/projects/" + ScriptApp.getScriptId() + "'>Apps Script</a> could not access your data at Tesla.com. <br>"+
-        "TODO: Explain how to get a new refresh token here.",
+        "Please go to https://github.com/TorZidan/TeslaWatch/blob/main/TeslaSolarWatch/README.md#getting-a-new-tesla-refresh-token"+
+        " and follow the instructions to get a new refresh token and store in your code.",
       });
     
     throw e;
