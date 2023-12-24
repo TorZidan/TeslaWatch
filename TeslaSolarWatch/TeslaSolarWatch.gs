@@ -1,4 +1,8 @@
 /**
+ * Tesla Solar Watch version 1.0.
+ * 
+ * This code is subject to the software license at https://github.com/TorZidan/TeslaWatch/blob/main/LICENSE
+ *
  * This is the Apps Script code for the Tesla Solar Watch project.
  * See https://github.com/TorZidan/TeslaWatch/blob/main/TeslaSolarWatch/README.md for more info.
  * 

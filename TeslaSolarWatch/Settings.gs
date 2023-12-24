@@ -1,18 +1,22 @@
 /**
- * These are the settings for the Tesla Solar Watch project.
- * For first time setup: go to https://github.com/TorZidan/TeslaWatch/blob/main/TeslaSolarWatch/README.md
- * and follow the instructions.
+ * Tesla Solar Watch version 1.0.
  * 
+ * This code is subject to the software license at https://github.com/TorZidan/TeslaWatch/blob/main/LICENSE
+ *
+ * These are the settings for the Tesla Solar Watch project.
  * They are used by the code in file TeslaSolarWatch.gs (which is also part of this project).
+ * 
+ * For first time setup, go to https://github.com/TorZidan/TeslaWatch/blob/main/TeslaSolarWatch/README.md
+ * and follow the instructions.
  */
 
 // The URL of the spreadsheet that keeps the historical data, e.g.
-// https://docs.google.com/spreadsheets/d/..giberrish.../edit
+// https://docs.google.com/spreadsheets/d/..gibberrish.../edit
 // Note: you may choose to omit everything after "/edit", it's optional.
 TESLA_SOLAR_WATCH_SPREADSHEET_URL = "";
 
-// The tesla refresh_token (a very long giberrish) lasts for months once you login into your Tesla account.
-// We use it each time to get an access_token from the Tesla auth service, which is then used in each Tesla API call.
+// The tesla refresh_token (a very long gibberrish) lasts for months, once you get it by loging into your Tesla account.
+// The code uses it each time to get an access_token from the Tesla auth service, which is then used in each Tesla API restful call.
 REFRESH_TOKEN= "";
 
 // Most often you'll want to enter your email address here; If entering multiple email recepients,
