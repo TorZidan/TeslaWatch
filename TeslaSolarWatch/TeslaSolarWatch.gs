@@ -316,7 +316,7 @@ function getEnergyDataForLastWeekOrMonth(siteId, period, inTimeZone, accessToken
     if(innerData["time_series"] == null || innerData["time_series"].length ==0) {
       throw ("Things did not go well. There is no 'time_series' entry in the response text: "+responseText);
     }
-    Logger.log("Got " + innerData["time_series"].length + " rows of data for last month.");
+    Logger.log("Got " + innerData["time_series"].length + " rows of data for last "+period+".");
     const data = innerData["time_series"];
     //Logger.log(data);
     return data;
@@ -445,8 +445,10 @@ function sendSummaryEmailIfNeeded(energySiteId, energuSiteTimeZone, energySiteCo
   var emailBody = "";
   switch (summaryEmailType.toLowerCase())  {
     case "none":
+      Logger.log("SUMMARY_EMAIL_TYPE is set to '"+summaryEmailType+"'. Will not send a summary email.");
       return;
     case "daily":
+      Logger.log("Composing a daily summary email ...");
       const yesterdaysData = dailyDataForLastMonth[dailyDataForLastMonth.length -1];
       const yesterdaysSolarGenInWatts = yesterdaysData[ENERGY_SITE_FIELD_NAMES[1]];
       const yesterdaysDataAsString = (yesterdaysSolarGenInWatts <=1000)? yesterdaysSolarGenInWatts+" Watts" : (yesterdaysSolarGenInWatts/1000).toFixed(1) + "kW";
@@ -454,16 +456,16 @@ function sendSummaryEmailIfNeeded(energySiteId, energuSiteTimeZone, energySiteCo
       break;
     case "weekly":
     case "monthly":
-      // Make sure it's Sunday if need to send Weekly summary email, or it's the 1st of the month for Monthly summary emails:
+      // Make sure it's Sunday if we need to send Weekly summary email, or it's the 1st of the month for Monthly summary emails:
       if(summaryEmailType.toLowerCase()==="weekly" && Utilities.formatDate(new Date(), energuSiteTimeZone, 'u')!=="7") {
         Logger.log("It's not Sunday, will not send "+summaryEmailType+" summary email.");
         return;
       } else if(summaryEmailType.toLowerCase()==="monthly" && Utilities.formatDate(new Date(), energuSiteTimeZone, 'd')!=="1") {
         Logger.log("It's not the 1st of the month, will not send "+summaryEmailType+" summary email.");
         return;
-      } else {
-        return;
       }
+
+      Logger.log("Composing a "+summaryEmailType.toLowerCase()+" summary email ...");
       // Proceed with composing and sending the weekly or monthly summary email:
       emailBody = "<html><head>"+EMAIL_CSS_STYLES+"</head><body>"+
         summaryEmailType+" summary for my Tesla solar system energy generation:<br>"+
